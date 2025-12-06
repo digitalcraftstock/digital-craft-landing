@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Craft – Paket Produk Digital</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background:#f5f5f5; }
+    header { padding: 40px 20px; text-align: center; background: linear-gradient(135deg,#4b18ff,#9c4aff); color: white; }
+    .container { width: 90%; max-width: 900px; margin: 20px auto; }
+    .card { background: white; padding: 25px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-bottom: 20px; }
+    h1,h2,h3 { margin-top:0; }
+    .price-box { text-align:center; }
+    .price-box .old { text-decoration: line-through; font-size: 20px; color: #999; }
+    .price-box .new { font-size: 40px; font-weight: bold; color: #4b18ff; }
+    .btn { display:block; width:100%; background:#4b18ff; color:white; padding:15px; text-align:center; border-radius:12px; text-decoration:none; font-size:20px; margin-top:20px; transition:0.2s; }
+    .btn:hover { background:#360ecc; }
+    form label { display:block; margin-bottom:8px; font-weight:bold; }
+    form input, form textarea { width:100%; padding:10px; border-radius:10px; border:1px solid #ccc; margin-bottom:15px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Digital Craft</h1>
+    <p>Pusat Produk Digital Siap Pakai</p>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h2>Paket Produk Digital Lengkap</h2>
+      <p>Dapatkan semua produk digital premium dengan harga promo TERGILA tahun ini!</p>
+      <div class="price-box">
+        <div class="old">Rp500.000</div>
+        <div class="new">Rp49.000</div>
+      </div>
+      <a href="#order" class="btn">Pesan Sekarang</a>
+    </div>
+
+    <div class="card" id="order">
+      <h2>Form Pemesanan</h2>
+      <p>Setelah mengisi form, kamu akan otomatis mendapatkan email berisi instruksi pembayaran ke Dana: <b>085293141064</b></p>
+      <form id="orderForm">
+        <label>Nama Lengkap</label>
+        <input type="text" id="nama" required />
+
+        <label>Email Pembeli</label>
+        <input type="email" id="email" required />
+
+        <label>Catatan (opsional)</label>
+        <textarea id="catatan"></textarea>
+
+        <button class="btn" type="submit">Kirim Pemesanan</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Konfirmasi Pembayaran</h2>
+      <p>Upload bukti pembayaran kamu di sini, pastikan jelas.</p>
+      <form id="confirmForm" enctype="multipart/form-data">
+        <label>Nama Pembeli</label>
+        <input type="text" id="cnama" required />
+
+        <label>Email Pembeli</label>
+        <input type="email" id="cemail" required />
+
+        <label>Upload Bukti Pembayaran</label>
+        <input type="file" id="bukti" accept="image/*" required />
+
+        <button class="btn" type="submit">Kirim Konfirmasi</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const SEND_TO = "apel2buah2@gmail.com";
+
+    document.getElementById("orderForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      alert("Pemesanan berhasil! Email instruksi pembayaran telah dikirim ke: " + email);
+    });
+
+    document.getElementById("confirmForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      alert("Konfirmasi pembayaran terkirim! Digital Craft akan cek secara manual dan mengirim link produk.");
+    });
+  </script>
+</body>
+</html>
